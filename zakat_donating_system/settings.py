@@ -28,7 +28,9 @@ SECRET_KEY = 'django-insecure-di2r_1taiw=u4#s7#hn6%!6)h7pv)*1s_ev6x5-10#o&s2*gl^
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://zakat-donating-system.onrender.com', 'https://*.127.0.0.1'
+]
 
 # Application definition
 
