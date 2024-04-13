@@ -9,6 +9,7 @@ distlib
 dj-database-url
 Django
 django-allauth
+django-cors-headers
 django-crispy-forms
 django-email
 django-environ
