@@ -4,6 +4,7 @@ from django.utils import timezone
 from datetime import datetime
 # Create your models here.
 class Projects(models.Model):
+    img = models.ImageField(upload_to="donations/media/images/",null = True,blank=True)
     title = models.CharField(max_length = 50) 
     description = models.TextField()
     progress = models.PositiveIntegerField()
