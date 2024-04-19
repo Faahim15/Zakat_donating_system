@@ -8,5 +8,5 @@ router.register('post', views.BlogPostViewset) # router er antena
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('projects/<int:project_id>/donate/', views.DonationsView.as_view(), name='donate'),
+    path('project/<int:project_id>/donate/', views.DonationsView.as_view(), name='donate'),
 ]
