@@ -9,13 +9,17 @@ class Projects(models.Model):
     description = models.TextField()
     progress = models.PositiveIntegerField()
     goal = models.PositiveIntegerField() 
+    class Meta:
+        verbose_name_plural = "Projects"
     def __str__(self):
         return f"{self.title}"
 
 class Donations(models.Model):
     provide_to = models.ForeignKey(Projects, on_delete = models.CASCADE)
     amount = models.PositiveIntegerField() 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True) 
+    class Meta:
+        verbose_name_plural = "Donations"
 
     def __str__(self):
         return f"Donation of {self.amount} to {self.provide_to}"
@@ -23,9 +27,12 @@ class Donations(models.Model):
     
 
 class BlogPost(models.Model):
+    title = models.CharField(default = 'Zakat donations',max_length=400)
     author = models.ForeignKey(User, on_delete=models.CASCADE) 
     content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True) 
+    created_at = models.DateTimeField() 
+    class Meta:
+        verbose_name_plural = "Blog Post"
     def __str__(self):
         return f"{self.author}"
 
