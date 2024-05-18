@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . serializers import ProjectSerializer,BlogPostSerializer,DonationsSerializer
-from rest_framework import viewsets 
+from rest_framework import viewsets  
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
@@ -13,11 +14,13 @@ class ProjectViewset(viewsets.ModelViewSet):
     serializer_class =  ProjectSerializer 
 
 class BlogPostViewset(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = models.BlogPost.objects.all() 
     serializer_class =  BlogPostSerializer 
     
 
 class DonationsView(APIView): 
+    permission_classes = [IsAuthenticated]
     def post(self,request,project_id):
         try:
             amount = int(request.data.get('amount')) 
